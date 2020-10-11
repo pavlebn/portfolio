@@ -162,7 +162,7 @@ h1
 
     @include rwd (1281)
         p
-            font-size: 1.8em
+            font-size: 1.5em
         h1
             font-size: 2.8em
 
@@ -247,14 +247,28 @@ h1
             width: 40%
             max-width: 40%
             margin: auto 0
+        @include orientation("portrait")
+            h1
+                font-size: 2.4em
+            h2
+                font-size: 2em
+            p
+                font-size: 1.2em
     @include mlg
         h1
-            font-size: 2em
+            font-size: 2.4em
         h2
             font-size: 1.5em
         p
             font-size: 0.9em
-
+        @include orientation("portrait")
+            h1
+                font-size: 3em
+            h2
+                font-size: 2.2em
+            p  
+                font-size: 1.4em
+        
     @include rwd (1281)
         h1
             font-size: 2.2em
@@ -351,7 +365,7 @@ h1
         h1
             font-size: 3.5em
         p, li, i
-            font-size: 1.4em
+            font-size: 1.2em
     
     @include lg
         h1
