@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pekara</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" >
+    <!--Height - 440px for footer - 380px for landing-->
+    <script src="https://kit.fontawesome.com/81b31eb0ee.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
+</head>
+<body>
+<div class="header">
+    <img class="bg rellax" src="img/bg.jpg" data-rellax-percentage=".5" data-rellax-speed="-8">
+    <div class="shade rellax" data-rellax-percentage="0.5" data-rellax-speed="-5">
+    </div>
+    
+    <div class="text-align rellax" data-rellax-percentage="0.5" data-rellax-speed="-5">
+        <img class="logo" src="img/logo.png">
+        <h1>Hljeb koji nećete psovati!</h1>
+    </div>
+    
+</div>
+
+<!--<div class="cont-wrapper">
+    <div class="vertical-align rellax" data-rellax-percentage="0.5" data-rellax-speed="1">
+    <div class="cont-grid" data-rellax-percentage="0.5" data-rellax-speed="-0.3">
+        <h1>Header 1</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur adipisci ut libero hic voluptate sit labore odit alias nemo reprehenderit? Voluptatem quo eveniet quisquam, facilis nostrum commodi nam fugiat obcaecati?</p>
+    </div>
+    <div class="cont-grid">
+        <h1>Header 1</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur adipisci ut libero hic voluptate sit labore odit alias nemo reprehenderit? Voluptatem quo eveniet quisquam, facilis nostrum commodi nam fugiat obcaecati?</p>
+    </div>
+    <div class="cont-grid">
+        <h1>Header 1</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur adipisci ut libero hic voluptate sit labore odit alias nemo reprehenderit? Voluptatem quo eveniet quisquam, facilis nostrum commodi nam fugiat obcaecati?</p>
+    </div>
+    </div>
+</div>-->
+<div class="section">
+<div class="breaker">
+    <h1>Ovdje isto moze neki tekst/citat</h1>
+</div>
+<div class="bgfix">
+<div class="wrapper-main">
+    <div class="main1">
+        <img class="bgmain" src="img/main1.jpg">
+        <div class="wrapper">
+            <h1>O nama</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus consequuntur fugit labore nobis nemo exercitationem! Enim rem officia fuga molestias cum est odio provident unde, nisi id hic necessitatibus debitis!
+        </p>
+    </div>
+    </div>
+    <div class="main2">
+        <img class="bgmain" src="img/main2.jpg">
+        <div class="wrapper">
+            <h1>Galerija</h1>
+            <p>Ovdje ce biti dugme za galeriju</p>
+        </div>
+    </div>
+    <div class="main3">
+        <img class="bgmain" src="img/main4.jpg">
+        <div class="wrapper">
+            <h1>Lorem Ipsum</h1>
+            <p>Neki fensi citat</p>
+        </div>
+    </div>
+</div>
+</div>
+<div class="breaker">
+    <h1>Kontaktirajte nas</h1>
+</div>
+</div>
+
+<div class="wrapper-footer rellax" data-rellax-speed="-2" data-rellax-percentage="0.445">
+    <div class="footer">
+        <div class="footcont">
+            <ul>
+                <li><p>Mapa</p><i class="fas fa-map-marker-alt"></i></li>
+                <li><p>Telefon</p><i class="fas fa-phone"></i></li>
+                <li><p>Viber</p><i class="fab fa-viber"></i></li>
+                <li><p>Fax</p><i class="fas fa-fax"></i></li>
+            </ul>
+        </div>
+        <div class="line"></div>
+        <div class="footcont2">
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i><p>Mapa</p></li>
+                <li><i class="fas fa-phone"></i><p>Telefon</p></li>
+                <li><i class="fab fa-viber"></i><p>Viber</p></li>
+                <li><i class="fas fa-fax"></i><p>Fax</p></li>
+            </ul>
+        </div>
+        <p class="copyright">Made by @pavlebn 2020</p>
+    </div>
+</div>
+</body>
+
+
+<script src="js/rellax.min.js"></script>
+<script>
+  // Accepts any class name
+  var rellax = new Rellax('.rellax');
+</script>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    /*jslint browser: true*/
+/*global jQuery, window, document*/
+function listVisibleBoxes() {
+    
+    var results = [];
+    
+    $("section").each(function () {
+        
+        var screenTop = document.documentElement.scrollTop;
+        var screenBottom = document.documentElement.scrollTop + $(window).height();
+        var boxTop = $(this).offset().top;
+        var boxHeight = $(this).height();
+        var boxBottom = boxTop + boxHeight;
+        
+        if(boxTop > screenTop) {
+            if(boxBottom < screenBottom) {
+                //full box
+                results.push(this.id + "-100%");
+                $(this).html("100%");
+            } else if(boxTop < screenBottom) {
+                //partial (bottom)
+                var percent = Math.round((screenBottom - boxTop) / boxHeight * 100) + "%";
+                results.push(this.id + "-" + percent);
+                $(this).html(percent);
+            }
+        } else if(boxBottom > screenTop) {
+            //partial (top)
+            var percent = Math.round((boxBottom - screenTop) / boxHeight * 100) + "%";
+            results.push(this.id + "-" + percent);
+            $(this).html(percent);
+        }
+    });
+    
+    $("#data").html(results.join(" | "));
+    
+}
+
+$(function () {
+    
+    listVisibleBoxes();
+    
+    $(window).on("scroll", function() {
+        listVisibleBoxes();
+    });
+    
+});
+</script>-->
+</html>
