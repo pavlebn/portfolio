@@ -1,0 +1,452 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@300;400&family=Reem+Kufi&family=Yellowtail&display=swap')
+
+.montserrat
+    font-family: Montserrat
+
+.lobster
+    font-family: Lobster
+
+.yellowtail
+    font-family: 'Yellowtail', 
+    
+.reemkufi
+    font-family: "Reem kufi"
+
+.weight400
+    font-weight: 400
+
+$gradient: linear-gradient(165deg, rgba(0,187,94,1) 0%, rgba(0,187,154,1) 100%)
+$card-gradient: linear-gradient(145deg, rgba(0,187,125,1) 0%, rgba(0,104,187,1) 100%)
+$button-gradient: linear-gradient(170deg , rgba(0,151,187,1) 0%, rgba(0,104,187,1) 80%, rgba(0,63,187,1) 100%)
+
+//Defining screen width
+$screen-sm-min: 576px
+$screen-md-min: 768px
+$screen-mlg-min: 1024px
+$screen-lg-min: 1920px
+$screen-xl-min: 2560px
+
+$orientation-landscape: "(orientation:landscape)"
+$orientation-portrait: "(orientation:portrait)"
+
+//Mixin media q
+@mixin sm
+    @media screen and (min-width: #{$screen-sm-min})
+        @content
+
+@mixin md
+    @media screen and (min-width: #{$screen-md-min})
+        @content
+
+@mixin lg 
+	@media screen and (min-width: #{$screen-lg-min})
+        @content
+
+@mixin mlg
+    @media screen and (min-width: #{$screen-mlg-min})
+        @content
+
+@mixin xl
+	@media screen and (min-width: #{$screen-xl-min}) and (min-height: 1440px)
+        @content
+
+@mixin rwd ($screen)
+	@media screen and (min-width: #{$screen+'px'}) 
+        @content;
+
+@mixin orientation($direction)
+    $orientation-landscape: "(orientation:landscape)"
+    $orientation-portrait: "(orientation:portrait)"
+
+    @if $direction == landscape
+        @media #{$orientation-landscape}
+            @content
+    @if $direction == portrait
+        @media #{$orientation-portrait}
+            @content 
+
+@mixin BoxShadow ($dp) 
+    @if $dp==0 
+        box-shadow: 0px 5px 2px 0px rgba(0,0,0,0.5)
+    
+    @else if $dp=="hover1"
+        box-shadow: 0px 4px 2px -1px #07a17b7e
+    
+    @else if $dp==1 
+        box-shadow: 0 4px 7px -1px rgba(0, 0, 0, .35)
+    
+    @else if $dp==2 
+        box-shadow: 0 4px 15px 0px rgba(0, 0, 0, .35)
+    
+    @else if $dp==3 
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .12), 0 1px 8px 0 rgba(0, 0, 0, .20)
+        
+    @else if $dp==6 
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .3), 0 1px 18px 0 rgba(0, 0, 0, .20), 0 3px 5px -1px rgba(0, 0, 0, .40)
+        
+    @else if $dp==24 
+        box-shadow: 0 24px 38px 3px rgba(0, 0, 0, .20), 0 9px 46px 8px rgba(0, 0, 0, .18), 0 11px 15px -7px rgba(0, 0, 0, .25)
+    
+h1
+    font-size: 2.5em
+
+.p15
+    font-size: 1.4em
+
+.bodycont
+    overflow: hidden
+    width: 100%
+    display: flex
+    height: 200vh
+    flex-flow: column
+    position: relative
+    background: $gradient
+    top: 0
+    justify-content: space-around
+    margin: auto
+    @include md
+        @include orientation("landscape")
+            flex-flow: row
+            height: 100vh  
+
+.static
+    position: relative
+    height: 90vh
+    margin: auto
+    background-color: #fff
+    width: 90%
+    border-radius: 25px
+    @include BoxShadow (0)
+    color: #333
+    max-width: 512px
+    h1
+        font-size: 2em
+    p
+        font-size: 1.2em
+
+    @include sm
+        @include orientation("portrait")
+            p
+                font-size: 1.4em
+    @include md
+        max-width: 768px
+        h1
+            font-size: 3em
+        p
+            font-size: 1.8em
+        @include orientation("landscape")
+            h1
+                font-size: 1.8em
+            p
+                font-size: 1.2em
+            width: 40%
+            max-width: 40%
+            margin: auto 0
+
+    @include mlg
+        @include orientation("portrait")
+            p
+                font-size: 2.2em
+            h1
+                font-size: 3.8em
+        @include orientation("landscape")
+            p
+                font-size: 1.35em
+            h1
+                font-size: 2em
+
+    @include rwd (1281)
+        p
+            font-size: 1.8em
+        h1
+            font-size: 2.8em
+
+    @include lg
+        p
+            font-size: 2em
+        h1
+            font-size: 3.5em
+        max-width: 768px
+
+    
+    
+        
+
+.staticgrid
+    position: relative
+    height: 100%
+    display: grid 
+    grid-template-columns: repeat(3, minmax(0, 1fr))
+    grid-template-rows: 20% 80%
+    padding: 5%
+
+.photo > img
+    grid-row: 1/2
+    height: 100%
+    width: 100%
+    object-fit: contain
+
+.staticgrid > h1
+    text-align: center
+    grid-row: 1/2
+    grid-column: 2/4
+    align-self: center
+
+.info
+    grid-row: 2/3
+    grid-column: 1/4
+    display: flex
+    flex-flow: column
+    justify-content: space-evenly
+
+.landinggrid
+    display: none
+    position: relative
+    height: 100%
+    display: grid 
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+    grid-template-rows: 10% 40% 40%
+    padding: 7% 10%
+    grid-gap: 5%
+    
+    h1
+        @include BoxShadow ("hover1")
+        background: $card-gradient
+        align-self: center
+        grid-column: 1/3
+        justify-self: center
+        color: #fff
+        font-size: 2em
+        padding: 2% 7%
+        border-radius: 50px
+        
+    p
+        display: none
+        @include md
+            display: block
+
+.landing
+    height: 90vh
+    margin: auto
+    width: 90%
+    background-color: #fff
+    border-radius: 25px
+    transition: transform .7s, opacity .7s, filter .8s
+    transition-timing-function: cubic-bezier(.6,0,.36,1)
+    max-width: 512px
+    @include BoxShadow (0)
+
+    @include md
+        max-width: 768px
+        @include orientation("landscape")
+            width: 40%
+            max-width: 40%
+            margin: auto 0
+    @include mlg
+        h1
+            font-size: 2em
+        h2
+            font-size: 1.5em
+        p
+            font-size: 0.9em
+
+    @include rwd (1281)
+        h1
+            font-size: 2.2em
+        h2
+            font-size: 1.8em
+        p
+            font-size: 1.2em
+    
+        
+    @include lg
+        h1
+            font-size: 3em
+        h2
+            font-size: 2em
+        p  
+            font-size: 1.5em
+        max-width: 768px  
+
+.landing-act
+    transform: scale(0.9)
+    opacity: 0.3
+    filter: blur(8px)
+    
+.cardcont
+    width: 100%
+    height: 100%
+    background-color: #fff
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-evenly
+    flex-direction: column
+    text-align: center
+    text-decoration: none
+    border-radius: 10px
+    transition: .3s ease-in-out
+    padding: 0 7%
+    color: #333
+    &:hover
+        background-color: transparent
+        color: white
+        
+.card
+    padding: 2px
+    background: $button-gradient
+    width: 100%
+    height: 100%
+    display: block
+    position: relative 
+    border-radius: 10px
+    color: black
+    transition: .3s ease-in-out
+    @include BoxShadow (1)
+    &:hover
+        @include BoxShadow (2)
+        
+.hidden
+    position: absolute
+    top: 50%
+    transform: translate(250%, 0%) scale(1.2)
+    right: 50%
+    height: 90vh
+    max-width: 512px
+    width: 85%
+    background: rgba(0, 0, 0, 0.3)
+    border-radius: 2%
+    transition: .7s 
+    transition-timing-function: cubic-bezier(.6,0,.36,1)
+    @include BoxShadow (24)
+    color: #222
+    span
+        font-style: italic
+    @include md
+        max-width: 768px
+        @include orientation("landscape")
+            max-width: 40%
+            transform: translate(250%, -50%) scale(1.2)
+            right: 25%
+            width: 40%
+        @include orientation("portrait")
+            h1
+                font-size: 3em
+            p, li
+                font-size: 1.4em
+        
+    @include mlg
+        @include orientation("portrait")
+            h1
+                font-size: 4em
+            p, li, i
+                font-size: 1.6em
+            max-width: 90%
+
+    @include rwd (1281)
+        h1
+            font-size: 3.5em
+        p, li, i
+            font-size: 1.4em
+    
+    @include lg
+        h1
+            font-size: 4em
+        p, li, i
+            font-size: 1.8em
+        max-width: 768px
+
+.hidden-act
+    transform: translate(50%, 5%) scale(1.05)
+    @include md
+        @include orientation("landscape")
+            transform: translate(50%, -50%) scale(1.05)
+            margin: auto
+
+.hiddengrid
+    position: relative
+    height: 100%
+    display: grid 
+    grid-template-columns: repeat(6, minmax(0, 1fr))
+    grid-template-rows: 15% 10% 55% 20%
+    grid-gap: 2%
+    padding: 0
+    text-align: center
+    h1
+        grid-column: 1/7
+        align-self: flex-end
+    p
+        grid-column: 2/6
+    ul
+        grid-column: 2/4
+        list-style: none
+    ul:nth-of-type(2)
+        grid-column: 4/6
+    li
+        margin: 2%
+
+.buttoncont
+    position: absolute
+    bottom: 3%
+    right: 2%
+    width: 120px
+    height: 45px
+    cursor: pointer
+    &:hover
+        color: #222
+    @include orientation("portrait")
+        right: 5%
+        bottom: 2%
+    @include md
+        width: 150px
+        height: 50px
+        font-size: 1.1em
+    @include mlg
+        @include orientation("portrait")
+            border-radius: 80px
+            font-size: 1.3em
+            width: 180px
+            height: 70px
+
+a
+    text-decoration: none
+    
+
+.button
+    @include BoxShadow (6)
+    border-radius: 30px
+    width: 100%
+    height: 100%
+    background-image: $button-gradient
+    align-content: center
+    transition: .2s
+    p
+        color: #fff
+        font-size: 1.2em
+        text-align: center
+        position: relative
+        top: 50%
+        transform: translateY(-50%)
+        transition: .2s
+        &:hover
+            color: #ccc
+    
+.icons
+    grid-row: 4/5
+    grid-column: 2/6
+    display: flex
+    justify-content: space-around
+    text-decoration: none
+    height: 100%
+    a
+        font-size: 1.5em
+        width: 100%
+        height: 100%
+        color: #222
+        transition: .3s
+        &:hover
+            color: #ccc
