@@ -1,8 +1,11 @@
 *
     margin: 0
     padding: 0
-    font-family: Roboto
+    font-family: 'Quicksand', sans-serif
     overflow-x: hidden
+
+@import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&family=Oregano&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap')
 
 $p: #ffc400
 $p-light: #fff64f
@@ -165,6 +168,8 @@ body
         @include md
             top: 0
             width: 70%
+        @include lg
+            max-width: 420px
 
 .vertical-align
     height: 100%
@@ -250,16 +255,12 @@ body
             max-width: 100%
             @media screen and (max-height: 2160px)
                 max-width: 3840px        
-        
+
 .main1
     grid-row: 1/2 
     @include orientation(landscape)
         @include md
             grid-row: 1/3
-
-.main2
-
-.main3
 
 .bgmain
     filter: blur(0px) brightness(70%)
@@ -287,7 +288,7 @@ body
         position: relative
         color: white
 
-.main3
+.main3, .main2
     text-align: center
 
 .wrapper-footer
@@ -360,3 +361,62 @@ ul
     color: #555
 
     
+.fa-play
+    color: white
+    position: relative
+    font-size: 4.5em
+    cursor: pointer
+    margin: 5% auto
+
+.lg-download
+    display: none
+
+.font1
+    font-family: 'Dawning of a New Day', cursive
+    font-size: 3em
+    @include md
+        font-size: 4em
+    @include orientation(landscape)
+        @include md
+            font-size: 3em
+        @include lg
+            font-size: 3.5em
+
+.fontp
+    padding: 25px 0px
+    line-height: 1.2em
+    font-size: 1.1em
+    text-indent: 2.5em
+    @include md
+        font-size: 1.5em
+        line-height: 1.5em
+    @include orientation(landscape)
+        @include md
+            font-size: 1.1em
+            line-height: 1.4em
+        @include lg
+            font-size: 1.8em
+
+
+.quote
+    font-size: 1.5em
+    @include md
+        font-size: 2em
+        line-height: 1.5em
+    @include orientation(landscape)
+        @include md
+            font-size: 1.2em
+        @include lg
+            font-size: 2em
+    
+
+.quotea
+    text-indent: 10em
+    padding: 1em
+    @include md
+        font-size: 1.5em
+    @include orientation(landscape)
+        @include md
+            font-size: 1.2em
+        @include lg
+            font-size: 1.5em

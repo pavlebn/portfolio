@@ -3,9 +3,9 @@
 <head>
     <title>Pekara</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" >
-    <!--Height - 440px for footer - 380px for landing-->
     <script src="https://kit.fontawesome.com/81b31eb0ee.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="css/lightgallery.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
 </head>
 <body>
@@ -16,53 +16,42 @@
     
     <div class="text-align rellax" data-rellax-percentage="0.5" data-rellax-speed="-5">
         <img class="logo" src="img/logo.png">
-        <h1>Hljeb koji nećete psovati!</h1>
+        <h1>Hljeb koji necete psovati!</h1>
     </div>
     
 </div>
 
-<!--<div class="cont-wrapper">
-    <div class="vertical-align rellax" data-rellax-percentage="0.5" data-rellax-speed="1">
-    <div class="cont-grid" data-rellax-percentage="0.5" data-rellax-speed="-0.3">
-        <h1>Header 1</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur adipisci ut libero hic voluptate sit labore odit alias nemo reprehenderit? Voluptatem quo eveniet quisquam, facilis nostrum commodi nam fugiat obcaecati?</p>
-    </div>
-    <div class="cont-grid">
-        <h1>Header 1</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur adipisci ut libero hic voluptate sit labore odit alias nemo reprehenderit? Voluptatem quo eveniet quisquam, facilis nostrum commodi nam fugiat obcaecati?</p>
-    </div>
-    <div class="cont-grid">
-        <h1>Header 1</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur adipisci ut libero hic voluptate sit labore odit alias nemo reprehenderit? Voluptatem quo eveniet quisquam, facilis nostrum commodi nam fugiat obcaecati?</p>
-    </div>
-    </div>
-</div>-->
 <div class="section">
 <div class="breaker">
-    <h1>Ovdje isto moze neki tekst/citat</h1>
 </div>
 <div class="bgfix">
 <div class="wrapper-main">
     <div class="main1">
         <img class="bgmain" src="img/main1.jpg">
         <div class="wrapper">
-            <h1>O nama</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus consequuntur fugit labore nobis nemo exercitationem! Enim rem officia fuga molestias cum est odio provident unde, nisi id hic necessitatibus debitis!
+            <h1 class="font1">O nama</h1>
+            <p class="fontp">U poslovanju kompanija koje su društveno odgovorne trebalo bi (mada i dalje često nije tako) da se podrazumeva da poštuje ljudska prava i ne zagađuje životnu okolinu. Ako je taj prvi uslov ispunjen, tek onda možemo govoriti o nadogradnji: učešću u humanitarnim akcijama i drugim vidovima društvene odgovornosti. Jedna od naših najznačajnijih konkurentnih prednosti je kombinacija znanja, kreativnosti i inovacije svih naših radnika. Snažna društvena odgovornost ogleda se u brizi za dobrobit i sigurnost našeg osoblja i ljudi iz šire društvene zajednice. Svi oni doprinose našem poslovanju. U saradnji sa radnicima, njihovim porodicama, lokalnom zajednicom i društvom u celini, Pekara Aleksa se zalaže za održiv ekonomski razvoj radi poboljšanja kvaliteta života.
         </p>
     </div>
     </div>
     <div class="main2">
         <img class="bgmain" src="img/main2.jpg">
         <div class="wrapper">
-            <h1>Galerija</h1>
-            <p>Ovdje ce biti dugme za galeriju</p>
+            <div id="gallery">
+                <i href="img/main1.jpg" class="fas fa-play"></i>
+                <a href="img/main2.jpg"></a>
+                <a href="img/main3.jpg"></a>
+                <a href="img/main4.jpg"></a>
+            </div>
+            <h1 class="font1">Galerija</h1>
+            
         </div>
     </div>
     <div class="main3">
         <img class="bgmain" src="img/main4.jpg">
         <div class="wrapper">
-            <h1>Lorem Ipsum</h1>
-            <p>Neki fensi citat</p>
+            <h1 class="quote">"Niko ne može da misli kako treba, voli kako treba i spava kako treba ako nije večerao kako treba"</h1>
+            <p class="quotea">- Virdžinija Vulf</p>
         </div>
     </div>
 </div>
@@ -96,60 +85,10 @@
 </div>
 </body>
 
-
 <script src="js/rellax.min.js"></script>
-<script>
-  // Accepts any class name
-  var rellax = new Rellax('.rellax');
+<script src="js/lightgallery.min.js"></script>
+<script type="text/javascript">
+    var rellax = new Rellax('.rellax');
+    lightGallery(document.getElementById('gallery'));
 </script>
-
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    /*jslint browser: true*/
-/*global jQuery, window, document*/
-function listVisibleBoxes() {
-    
-    var results = [];
-    
-    $("section").each(function () {
-        
-        var screenTop = document.documentElement.scrollTop;
-        var screenBottom = document.documentElement.scrollTop + $(window).height();
-        var boxTop = $(this).offset().top;
-        var boxHeight = $(this).height();
-        var boxBottom = boxTop + boxHeight;
-        
-        if(boxTop > screenTop) {
-            if(boxBottom < screenBottom) {
-                //full box
-                results.push(this.id + "-100%");
-                $(this).html("100%");
-            } else if(boxTop < screenBottom) {
-                //partial (bottom)
-                var percent = Math.round((screenBottom - boxTop) / boxHeight * 100) + "%";
-                results.push(this.id + "-" + percent);
-                $(this).html(percent);
-            }
-        } else if(boxBottom > screenTop) {
-            //partial (top)
-            var percent = Math.round((boxBottom - screenTop) / boxHeight * 100) + "%";
-            results.push(this.id + "-" + percent);
-            $(this).html(percent);
-        }
-    });
-    
-    $("#data").html(results.join(" | "));
-    
-}
-
-$(function () {
-    
-    listVisibleBoxes();
-    
-    $(window).on("scroll", function() {
-        listVisibleBoxes();
-    });
-    
-});
-</script>-->
 </html>
